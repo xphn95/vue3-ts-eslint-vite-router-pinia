@@ -13,9 +13,11 @@ const routes: RouteRecordRaw[] = [
 		component: async () => import('../components/UserLogin.vue')
 	},
 	{
-		path: '/regist',
+		// Path: '/regist',
+		path: '/regist/id/:id/name/:name/price/:price',
 		name: 'Regist',
-		component: async () => import('../components/UserRegist.vue')
+		component: async () => import('../components/UserRegist.vue'),
+		props: true
 	}
 ]
 

@@ -102,3 +102,209 @@ const toPage = (params: Pick<RouteRecordRaw, 'path'>) => {
 2. router.back()
 
 ## 路由传参
+
+### query
+
+```typescript
+/* Interface Commodity {
+  name: string,
+  price: number,
+  id: number,
+  // Interface 是可扩展的并非最终形态, 所以需要用索引签名来限制可能会有的新增属性保证与待检查的类型一致
+  [params: string]: string | number
+} */
+
+// type 不可扩展扩展可以确保是最终形态
+type Commodity = {
+  name: string,
+  price: number,
+  id: number
+}
+
+interface ToDetail {
+  (commodity: Commodity): void
+}
+const router = useRouter()
+const toDetail: ToDetail = commodity => {
+	router.push({
+		path: '/regist',
+		query: commodity
+	})
+	console.log(commodity)
+}
+```
+
+1. 使用 query 传就要用 query 接
+
+```typescript
+<script setup lang="ts">
+const msg = $ref('regist page')
+
+const route = useRoute()
+const router = useRouter()
+</script>
+
+<template>
+  <div>
+    {{ msg }}
+  </div>
+  <div>{{ route.query.name }}</div>
+  <div>{{ route.query.price }}</div>
+  <div>{{ route.query.id }}</div>
+  <br>
+  <button @click="router.back">
+    返回
+  </button>
+</template>
+```
+
+2. 使用 state 然后用 history.state 接
+
+``` typescript
+const toDetail: ToDetail = commodity => {
+	router.push({
+		/* Path: '/regist',
+		Query: commodity */
+		// path: '/regist/:id/name/:name/price/:price',
+		name: 'Regist',
+		state: commodity
+	})
+}
+```
+
+```typescript
+<script setup lang="ts">
+const msg = $ref('regist page')
+
+// Const route = useRoute()
+const router = useRouter()
+// Console.log(history.state)
+const item = ref(history.state)
+</script>
+
+<template>
+  <div>
+    {{ msg }}
+  </div>
+  <!-- <div>{{ route.query.name }}</div>
+  <div>{{ route.query.price }}</div>
+  <div>{{ route.query.id }}</div> -->
+  <div>{{ item.name }}</div>
+  <div>{{ item.id }}</div>
+  <div>{{ item.price }}</div>
+  <br>
+  <button @click="router.back">
+    返回
+  </button>
+</template>
+```
+
+3. 配置路由的定义去匹配 path , 使用 params 接
+
+```typescript
+import type { RouteRecordRaw } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
+
+const routes: RouteRecordRaw[] = [
+	{
+		path: '/',
+		name: 'Home',
+		component: async () => import('../components/HelloWorld.vue')
+	},
+	{
+		path: '/login',
+		name: 'Login',
+		component: async () => import('../components/UserLogin.vue')
+	},
+	{
+		// Path: '/regist',
+		path: '/regist/id/:id/name/:name/price/:price',
+		name: 'Regist',
+		component: async () => import('../components/UserRegist.vue')
+	}
+]
+
+const router = createRouter({
+	history: createWebHistory(),
+	routes
+})
+
+export default router
+```
+
+
+```typescript
+const toDetail: ToDetail = commodity => {
+	router.push({
+		/* Path: '/regist',
+		Query: commodity */
+		// path: '/regist/id/:id/name/:name/price/:price',
+		/* name: 'Regist',
+		state: commodity */
+		name: 'Regist',
+		params: commodity
+	})
+}
+```
+
+
+```html
+  <div>{{ route.params.name }}</div>
+  <div>{{ route.params.id }}</div>
+  <div>{{ route.params.price }}</div>
+```
+
+4. 与 route 解耦, 更灵活的方法 path 配合 props
+
+```typescript
+import type { RouteRecordRaw } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
+
+const routes: RouteRecordRaw[] = [
+	{
+		path: '/',
+		name: 'Home',
+		component: async () => import('../components/HelloWorld.vue')
+	},
+	{
+		path: '/login',
+		name: 'Login',
+		component: async () => import('../components/UserLogin.vue')
+	},
+	{
+		// Path: '/regist',
+		path: '/regist/id/:id/name/:name/price/:price',
+		name: 'Regist',
+		component: async () => import('../components/UserRegist.vue'),
+		props: true
+	}
+]
+
+const router = createRouter({
+	history: createWebHistory(),
+	routes
+})
+
+export default router
+```
+
+`接收方`
+```typescript
+<script setup lang="ts">
+const msg = $ref('regist page')
+
+const router = useRouter()
+
+const props = defineProps<{
+  name: string,
+  id: string,
+  price: string
+}>()
+</script>
+
+<template>
+  <div>{{ props.name }}</div>
+  <div>{{ props.id }}</div>
+  <div>{{ props.price }}</div>
+</template>
+```

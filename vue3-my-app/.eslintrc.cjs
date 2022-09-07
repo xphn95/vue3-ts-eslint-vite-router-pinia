@@ -30,7 +30,11 @@ module.exports = defineConfig({
 				'object-curly-spacing': 0,
 				'@typescript-eslint/object-curly-spacing': [2, 'always'],
 				'@typescript-eslint/triple-slash-reference': 0,
-				'@typescript-eslint/comma-dangle': [2, 'never']
+				'@typescript-eslint/comma-dangle': [2, 'never'],
+				'no-unused-vars': 0,
+				'@typescript-eslint/no-unused-vars': [2, {
+					argsIgnorePattern: '^_'
+				}]
 			}
 		},
 		{
@@ -62,7 +66,11 @@ module.exports = defineConfig({
 		'object-curly-spacing': [2, 'always'],
 		'space-before-function-paren': [2, 'always'],
 		'comma-dangle': [2, 'never'],
-		'@typescript-eslint/no-var-requires': 0
+		'@typescript-eslint/no-var-requires': 0,
+		'@typescript-eslint/no-unused-vars': [2, {
+			argsIgnorePattern: '^_'
+		}],
+		'jsonc/comma-dangle': [2, 'never']
 	},
 	ignorePatterns: [
 		'*.d.ts'
