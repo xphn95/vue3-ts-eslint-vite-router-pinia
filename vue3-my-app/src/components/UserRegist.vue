@@ -1,15 +1,19 @@
 <script setup lang="ts">
+import { data } from './data.json'
 const msg = $ref('regist page')
 
 // Const route = useRoute()
 const router = useRouter()
 // Console.log(history.state)
 // const item = ref(history.state)
-const props = defineProps<{
-  name: string,
-  id: string,
-  price: string
+
+const { price } = defineProps<{
+  name?: string,
+  id?: number,
+  price?: number
 }>()
+const dataItem = data.find(item => item.price === price)
+console.log(dataItem)
 </script>
 
 <template>
@@ -25,9 +29,9 @@ const props = defineProps<{
   <!-- <div>{{ route.params.name }}</div>
   <div>{{ route.params.id }}</div>
   <div>{{ route.params.price }}</div> -->
-  <div>{{ props.name }}</div>
-  <div>{{ props.id }}</div>
-  <div>{{ props.price }}</div>
+  <div>{{ dataItem?.name }}</div>
+  <div>{{ dataItem?.id }}</div>
+  <div>{{ dataItem?.price }}</div>
   <br>
   <button @click="router.back">
     返回

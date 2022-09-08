@@ -14,10 +14,13 @@ const routes: RouteRecordRaw[] = [
 	},
 	{
 		// Path: '/regist',
-		path: '/regist/id/:id/name/:name/price/:price',
+		path: '/regist/:price/:name/:id',
 		name: 'Regist',
 		component: async () => import('../components/UserRegist.vue'),
-		props: true
+		props: route => ({
+			// Id: parseInt(route.params.id as string, 10)
+			price: parseFloat(route.params.price as string)
+		})
 	}
 ]
 

@@ -256,6 +256,8 @@ const toDetail: ToDetail = commodity => {
 
 4. 与 route 解耦, 更灵活的方法 path 配合 props
 
+这种方式自己实践当只传一个参数然后查询 item 来显示数据不会刷新丢失, 多个参数就丢失
+
 ```typescript
 import type { RouteRecordRaw } from 'vue-router'
 import { createRouter, createWebHistory } from 'vue-router'

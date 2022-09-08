@@ -44,6 +44,9 @@ module.exports = defineConfig({
 			parser: 'vue-eslint-parser',
 			parserOptions: {
 				parser: '@typescript-eslint/parser'
+			},
+			rules: {
+				'vue/no-setup-props-destructure': 0
 			}
 		}
 	],
