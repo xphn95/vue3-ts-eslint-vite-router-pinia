@@ -310,3 +310,6 @@ const props = defineProps<{
   <div>{{ props.price }}</div>
 </template>
 ```
+
+## 嵌套路由
+省略, 文档很好了

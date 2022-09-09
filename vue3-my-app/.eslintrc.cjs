@@ -46,7 +46,12 @@ module.exports = defineConfig({
 				parser: '@typescript-eslint/parser'
 			},
 			rules: {
-				'vue/no-setup-props-destructure': 0
+				'vue/no-setup-props-destructure': 0,
+				'vue/multi-word-component-names': [2, {
+					ignores: [
+						'Footer'
+					]
+				}]
 			}
 		}
 	],

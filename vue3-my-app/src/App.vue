@@ -1,24 +1,23 @@
 <script setup lang="ts">
 import type { RouteRecordRaw } from 'vue-router'
 
-const hello = $ref('hello')
-console.log(hello)
+// Const hello = $ref('hello')
+// console.log(hello)
 
 const router = useRouter()
 // Push 和 to 属性的行为是一样的
 /* const toPage = (path: string) => {
 	router.push(path)
 } */
-/* Const toPage = (params: Pick<RouteRecordRaw, 'name'>) => {
+const toPage = (params: Pick<RouteRecordRaw, 'name'>) => {
 	router.push(params)
-} */
-const toPage = (params: Pick<RouteRecordRaw, 'path'>) => {
-	router.replace(params)
 }
+/* Const toPage = (params: Pick<RouteRecordRaw, 'path'>) => {
+	router.replace(params)
+} */
 </script>
 
 <template>
-  <div>{{ hello }}</div>
   <!-- 使用路径 -->
   <!-- <router-link
     to="/"
@@ -60,17 +59,17 @@ const toPage = (params: Pick<RouteRecordRaw, 'path'>) => {
     regist
   </button> -->
   <!-- params: Pick<RouteRecordRaw, 'name'> -->
-  <!-- <button @click="toPage({name: 'Home'})">
+  <button @click="router.push('/')">
     home
   </button>
   <button @click="toPage({name: 'Login'})">
     login
   </button>
-  <button @click="toPage({name: 'Regist'})">
+  <!-- <button @click="toPage({name: 'Regist'})">
     regist
   </button> -->
   <!-- params: Pick<RouteRecordRaw, 'path'> -->
-  <button @click="toPage({path: '/'})">
+  <!-- <button @click="toPage({path: '/'})">
     home
   </button>
   <button @click="toPage({path: '/login'})">
@@ -78,6 +77,6 @@ const toPage = (params: Pick<RouteRecordRaw, 'path'>) => {
   </button>
   <button @click="toPage({path: '/regist'})">
     regist
-  </button>
+  </button>-->
   <router-view />
 </template>
