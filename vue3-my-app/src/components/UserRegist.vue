@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { data } from './data.json'
+import { data } from '~/components/data.json'
 const msg = $ref('regist page')
 
 // Const route = useRoute()

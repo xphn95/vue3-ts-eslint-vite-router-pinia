@@ -1,17 +1,17 @@
 <script setup lang="ts">
-import type { RouteRecordRaw } from 'vue-router'
+// Import type { RouteRecordRaw } from 'vue-router'
 
 // Const hello = $ref('hello')
 // console.log(hello)
 
-const router = useRouter()
+// const router = useRouter()
 // Push 和 to 属性的行为是一样的
 /* const toPage = (path: string) => {
 	router.push(path)
 } */
-const toPage = (params: Pick<RouteRecordRaw, 'name'>) => {
+/* const toPage = (params: Pick<RouteRecordRaw, 'name'>) => {
 	router.push(params)
-}
+} */
 /* Const toPage = (params: Pick<RouteRecordRaw, 'path'>) => {
 	router.replace(params)
 } */
@@ -59,12 +59,12 @@ const toPage = (params: Pick<RouteRecordRaw, 'name'>) => {
     regist
   </button> -->
   <!-- params: Pick<RouteRecordRaw, 'name'> -->
-  <button @click="router.push('/')">
+  <!-- <button @click="router.push('/')">
     home
   </button>
   <button @click="toPage({name: 'Login'})">
     login
-  </button>
+  </button> -->
   <!-- <button @click="toPage({name: 'Regist'})">
     regist
   </button> -->
@@ -79,4 +79,7 @@ const toPage = (params: Pick<RouteRecordRaw, 'name'>) => {
     regist
   </button>-->
   <router-view />
+  <el-button type="primary">
+    Primary
+  </el-button>
 </template>

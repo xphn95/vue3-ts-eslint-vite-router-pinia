@@ -34,6 +34,9 @@ module.exports = defineConfig({
 				'no-unused-vars': 0,
 				'@typescript-eslint/no-unused-vars': [2, {
 					argsIgnorePattern: '^_'
+				}],
+				'new-cap': [2, {
+					capIsNewExceptions: ['ElementPlusResolver', 'ViteAliases']
 				}]
 			}
 		},
@@ -49,7 +52,9 @@ module.exports = defineConfig({
 				'vue/no-setup-props-destructure': 0,
 				'vue/multi-word-component-names': [2, {
 					ignores: [
-						'Footer'
+						'Footer',
+						'Login',
+						'Index'
 					]
 				}]
 			}

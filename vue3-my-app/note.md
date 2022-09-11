@@ -312,4 +312,13 @@ const props = defineProps<{
 ```
 
 ## 嵌套路由
-省略, 文档很好了
+router 的 children 属性
+
+## 命名视图
+router 的 components 属性
+
+## 重定向和别名
+重定向: redirect
+别名: alias 可以是字符串或者数组
+
+## 导航守卫-前置守卫

@@ -3,7 +3,7 @@
     "target": "ESNext",
     "useDefineForClassFields": true,
     "module": "ESNext",
-    "moduleResolution": "Node",
+    "moduleResolution": "node",
     "strict": true,
     "jsx": "preserve",
     "sourceMap": true,
@@ -11,8 +11,15 @@
     "isolatedModules": true,
     "esModuleInterop": true,
     "lib": ["ESNext", "DOM"],
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "allowJs": true,
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["src/*"]
+    },
+    "types": ["node"],
+    "forceConsistentCasingInFileNames": true
   },
-  "include": ["src/**/*.ts", "src**/*.d.ts", "src/**/*.tsx"],
+  "include": ["src/**/*.ts", "src**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "vite.config.ts", "src/router/index.ts.old"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

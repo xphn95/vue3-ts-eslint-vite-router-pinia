@@ -9,10 +9,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "element-plus": "^2.2.16",
     "vue": "^3.2.37",
     "vue-router": "4"
   },
   "devDependencies": {
+    "@types/node": "^18.7.16",
     "@typescript-eslint/eslint-plugin": ">=5.31.0",
     "@typescript-eslint/parser": ">=5.31.0",
     "@vitejs/plugin-vue": "^3.0.3",
