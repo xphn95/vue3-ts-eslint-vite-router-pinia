@@ -79,7 +79,4 @@
     regist
   </button>-->
   <router-view />
-  <el-button type="primary">
-    Primary
-  </el-button>
 </template>

@@ -1,5 +1,5 @@
 <script setup>
-const msg = $ref('hello world')
+const msg = $ref('hello Index')
 
 </script>
 

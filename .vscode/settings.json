@@ -4,6 +4,7 @@
     "hashchange",
     "popstate",
     "regist",
+    "Unocss",
     "unplugin",
     "vite"
   ]

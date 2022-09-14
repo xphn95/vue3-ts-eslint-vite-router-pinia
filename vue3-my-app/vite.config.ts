@@ -3,6 +3,9 @@ import vue from '@vitejs/plugin-vue'
 import autoImport from 'unplugin-auto-import/vite'
 import component from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+import Unocss from 'unocss/vite'
+import presetAttributify from '@unocss/preset-attributify'
+import presetUno from '@unocss/preset-uno'
 import path from 'path'
 
 // https://vitejs.dev/config/
@@ -28,6 +31,13 @@ export default defineConfig({
 		component({
 			dts: true,
 			resolvers: [ElementPlusResolver()]
+		}),
+		Unocss({
+			mode: 'vue-scoped',
+			presets: [
+				presetAttributify(),
+				presetUno()
+			]
 		})
 	],
 	resolve: {
