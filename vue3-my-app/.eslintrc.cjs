@@ -6,6 +6,9 @@ module.exports = defineConfig({
 		es2021: true,
 		node: true
 	},
+	globals: {
+		ElMessage: true
+	},
 	extends: [
 		'plugin:vue/vue3-recommended',
 		'plugin:import/typescript',

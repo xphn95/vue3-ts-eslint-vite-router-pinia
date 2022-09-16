@@ -8,6 +8,7 @@
     "$shallowRef": true,
     "$toRef": true,
     "EffectScope": true,
+    "ElMessage": true,
     "computed": true,
     "createApp": true,
     "customRef": true,

@@ -7,5 +7,6 @@
     "Unocss",
     "unplugin",
     "vite"
-  ]
+  ],
+  "unocss.root": "../vue3-my-app/uno.config.ts"
 }

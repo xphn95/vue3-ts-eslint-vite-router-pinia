@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ElMessage } from 'element-plus'
+// Import { ElMessage } from 'element-plus'
 import type { FormItemRule, FormInstance } from 'element-plus'
 type FormInline = {
   user: string,
@@ -38,12 +38,11 @@ const onSubmit = async () => {
 	}
 
 	await ruleFormRef.value?.validate(valid => {
-		console.log(valid)
 		if (valid) {
 			router.push({ path: '/index' })
+			localStorage.setItem('token', '1')
 		} else {
-			console.log('done')
-			ElMessage.error('Oops, this is a error message.')
+			ElMessage.error('要输入完整')
 		}
 	})
 }

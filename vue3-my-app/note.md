@@ -322,3 +322,6 @@ router 的 components 属性
 别名: alias 可以是字符串或者数组
 
 ## 导航守卫-前置守卫
+
+补充知识:
+在 element-plus 的 issues 里看到使用自动导入时就不要手动引入, 会

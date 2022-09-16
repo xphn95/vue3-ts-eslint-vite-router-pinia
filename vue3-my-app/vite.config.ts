@@ -4,9 +4,9 @@ import autoImport from 'unplugin-auto-import/vite'
 import component from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import Unocss from 'unocss/vite'
-import presetAttributify from '@unocss/preset-attributify'
-import presetUno from '@unocss/preset-uno'
-import path from 'path'
+import path from 'node:path'
+
+const pathSrc = path.resolve(__dirname, 'src')
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -20,7 +20,7 @@ export default defineConfig({
 				'vue-router',
 				'vue/macros'
 			],
-			dts: 'src/auto-imports.d.ts',
+			dts: path.resolve(pathSrc, 'typings', 'auto-imports.d.ts'),
 			eslintrc: {
 				enabled: true,
 				filepath: './auto-imports.d.ts',
@@ -29,15 +29,11 @@ export default defineConfig({
 			resolvers: [ElementPlusResolver()]
 		}),
 		component({
-			dts: true,
+			dts: path.resolve(pathSrc, 'typings', 'components.d.ts'),
 			resolvers: [ElementPlusResolver()]
 		}),
 		Unocss({
-			mode: 'vue-scoped',
-			presets: [
-				presetAttributify(),
-				presetUno()
-			]
+			mode: 'vue-scoped'
 		})
 	],
 	resolve: {
