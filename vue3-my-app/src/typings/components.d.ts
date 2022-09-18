@@ -15,6 +15,7 @@ declare module '@vue/runtime-core' {
     Footer: typeof import('./../components/Footer.vue')['default']
     HelloWorld: typeof import('./../components/HelloWorld.vue')['default']
     Index: typeof import('./../components/Index.vue')['default']
+    LoadingBar: typeof import('./../components/LoadingBar.vue')['default']
     Login: typeof import('./../components/Login.vue')['default']
     PageA: typeof import('./../components/PageA.vue')['default']
     PageB: typeof import('./../components/PageB.vue')['default']

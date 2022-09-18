@@ -39,7 +39,7 @@ module.exports = defineConfig({
 					argsIgnorePattern: '^_'
 				}],
 				'new-cap': [2, {
-					capIsNewExceptions: ['ElementPlusResolver', 'ViteAliases', 'Unocss', 'ElMessage']
+					capIsNewExceptions: ['ElementPlusResolver', 'ViteAliases', 'Unocss']
 				}]
 			}
 		},
@@ -59,9 +59,6 @@ module.exports = defineConfig({
 						'Login',
 						'Index'
 					]
-				}],
-				'new-cap': [2, {
-					capIsNewExceptions: ['ElMessage']
 				}]
 			}
 		}

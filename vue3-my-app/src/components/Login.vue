@@ -1,6 +1,5 @@
 <script setup lang="ts">
-// Import { ElMessage } from 'element-plus'
-import type { FormItemRule, FormInstance } from 'element-plus'
+import { FormItemRule, FormInstance } from 'element-plus'
 type FormInline = {
   user: string,
   password: string

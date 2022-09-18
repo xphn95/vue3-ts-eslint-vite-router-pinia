@@ -20,6 +20,6 @@
     "types": ["node"],
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["src/**/*.ts", "src**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "vite.config.ts", "src/router/index.ts.old"],
+  "include": ["src/**/*.ts", "src**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "vite.config.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

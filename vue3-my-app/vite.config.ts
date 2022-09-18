@@ -18,7 +18,12 @@ export default defineConfig({
 			imports: [
 				'vue',
 				'vue-router',
-				'vue/macros'
+				'vue/macros',
+				{
+					'element-plus': [
+						'ElMessage'
+					]
+				}
 			],
 			dts: path.resolve(pathSrc, 'typings', 'auto-imports.d.ts'),
 			eslintrc: {
@@ -26,7 +31,9 @@ export default defineConfig({
 				filepath: './auto-imports.d.ts',
 				globalsPropValue: true
 			},
-			resolvers: [ElementPlusResolver()]
+			resolvers: [ElementPlusResolver({
+				importStyle: 'css'
+			})]
 		}),
 		component({
 			dts: path.resolve(pathSrc, 'typings', 'components.d.ts'),

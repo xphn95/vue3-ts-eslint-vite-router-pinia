@@ -11,9 +11,25 @@ const routes: RouteRecordRaw[] = [{
 	component: async () => import('~/components/Index.vue')
 }]
 
+const whiteList = ['/']
+
 const router = createRouter({
 	history: createWebHistory(),
 	routes
 })
+
+router.beforeEach(to => {
+	if (whiteList.includes(to.path) || localStorage.getItem('token')) {
+		return true
+	}
+
+	return {
+		path: '/'
+	}
+})
+
+/* Router.afterEach((to, from) => {
+
+}) */
 
 export default router
