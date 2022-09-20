@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { FormItemRule, FormInstance } from 'element-plus'
+
 type FormInline = {
   user: string,
   password: string
