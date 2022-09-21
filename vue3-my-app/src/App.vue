@@ -78,5 +78,9 @@
   <button @click="toPage({path: '/regist'})">
     regist
   </button>-->
-  <router-view />
+  <router-view v-slot="{ Component, route }">
+    <transition :enter-active-class="`animate__animated ${route.meta.transition}`">
+      <component :is="Component" />
+    </transition>
+  </router-view>
 </template>

@@ -40,7 +40,8 @@ module.exports = defineConfig({
 				}],
 				'new-cap': [2, {
 					capIsNewExceptions: ['ElementPlusResolver', 'ViteAliases', 'Unocss']
-				}]
+				}],
+				'@typescript-eslint/consistent-type-definitions': 0
 			}
 		},
 		{
@@ -52,14 +53,18 @@ module.exports = defineConfig({
 				parser: '@typescript-eslint/parser'
 			},
 			rules: {
+				// 允许 props 解构
 				'vue/no-setup-props-destructure': 0,
+				// 组件必须多个词组成
 				'vue/multi-word-component-names': [2, {
 					ignores: [
 						'Footer',
 						'Login',
 						'Index'
 					]
-				}]
+				}],
+				// 对象内的空格
+				'vue/object-curly-spacing': [2, 'always']
 			}
 		}
 	],
@@ -86,7 +91,8 @@ module.exports = defineConfig({
 		'@typescript-eslint/no-unused-vars': [2, {
 			argsIgnorePattern: '^_'
 		}],
-		'jsonc/comma-dangle': [2, 'never']
+		'jsonc/comma-dangle': [2, 'never'],
+		'capitalized-comments': 0
 	},
 	ignorePatterns: [
 		'*.d.ts'

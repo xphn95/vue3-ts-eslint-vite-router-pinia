@@ -8,7 +8,6 @@
 
 ## 命名路由
 
-
 ```javascript
 <script setup lang="ts">
 import type { RouteRecordRaw } from 'vue-router'
@@ -321,7 +320,30 @@ router 的 components 属性
 重定向: redirect
 别名: alias 可以是字符串或者数组
 
-## 导航守卫-前置守卫
+## 导航守卫-前置守卫&后置守卫
 
 补充知识:
-在 element-plus 的 issues 里看到使用自动导入时就不要手动引入, 会
+在 element-plus 的 issues 里看到有说既然使用了自动导入就完全依赖自动导入, 实际实验效果也是, 不然出现了显示不出来的情况
+
+以前版本是有 next 回调函数的, 仍然保留, 但不推荐使用了, 如果希望导航有效可以返回 undefined 或 true, 如果希望不按原本的方式导航可以返回一个类似 route 对象来导航到新的目标
+
+## 路由元信息
+
+方便在路由和导航守卫都能访问到
+
+使用 TS 的话需要扩展 RouteMeta 接口
+
+## 路由过渡动销
+
+配合动画库, 动态组件, 路由元信息实现效果
+
+```typescript
+<router-view v-slot="{Component, route}">
+ <transition :enter-active-class="`animate__animated ${route.meta.transition}`">
+   <component :is="Component" />
+ </transition>
+</router-view>
+```
+
+## 滚动行为
+

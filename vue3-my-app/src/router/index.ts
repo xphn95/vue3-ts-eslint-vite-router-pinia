@@ -3,13 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import { render } from 'vue'
 import loadingBar from '~/components/LoadingBar.vue'
 
-declare module 'vue-router' {
-	type RouteMeta = {
-		title: string;
-	}
-}
-
-type LoadingBarExposed = {
+interface LoadingBarExposed {
 	startLoading: () => void;
 	endLoading: () => void;
 }
@@ -19,14 +13,16 @@ const routes: RouteRecordRaw[] = [{
 	name: 'Home',
 	component: async () => import('~/components/Login.vue'),
 	meta: {
-		title: '登录页面'
+		title: '登录页面',
+		transition: 'animate__rubberBand'
 	}
 }, {
 	path: '/index',
 	name: 'Index',
 	component: async () => import('~/components/Index.vue'),
 	meta: {
-		title: '首页'
+		title: '首页',
+		transition: 'animate__swing'
 	}
 }]
 
@@ -42,6 +38,7 @@ const loadingBarCom = h(loadingBar)
 render(loadingBarCom, document.body)
 
 router.beforeEach((to, from) => {
+	document.title = to.meta.title
 	if (to.path === '/index' && from.name !== undefined) {
 		(loadingBarCom.component?.exposed as LoadingBarExposed).startLoading()
 	}

@@ -8,6 +8,7 @@ specifiers:
   '@unocss/preset-uno': ^0.45.21
   '@unocss/reset': ^0.45.21
   '@vitejs/plugin-vue': ^3.0.3
+  animate.css: ^4.1.1
   element-plus: ^2.2.16
   eslint: '>=8.0.0'
   eslint-config-xo: ^0.42.0
@@ -29,6 +30,7 @@ specifiers:
   vue-tsc: ^0.39.5
 
 dependencies:
+  animate.css: 4.1.1
   element-plus: 2.2.16_vue@3.2.38
   vue: 3.2.38
   vue-router: 4.1.5_vue@3.2.38
@@ -785,6 +787,10 @@ packages:
       json-schema-traverse: 0.4.1
       uri-js: 4.4.1
     dev: true
+
+  /animate.css/4.1.1:
+    resolution: {integrity: sha512-+mRmCTv6SbCmtYJCN4faJMNFVNN5EuCTTprDTAo7YzIGji2KADmakjVA3+8mVDkZ2Bf09vayB35lSQIex2+QaQ==}
+    dev: false
 
   /ansi-regex/5.0.1:
     resolution: {integrity: sha512-quJQXlTSUGL2LH9SUXo8VwsY4soanhgo6LNSm84E1LBcE8s3O0wpdiRzyR9z/ZZJMlMWv37qOOb9pdJlMUEKFQ==}
