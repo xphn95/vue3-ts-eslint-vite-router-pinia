@@ -4,7 +4,7 @@ const msg = $ref('hello Index')
 </script>
 
 <template>
-  <div>
+  <div class="message">
     {{ msg }}
   </div>
 </template>

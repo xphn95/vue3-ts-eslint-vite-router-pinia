@@ -30,7 +30,13 @@ const whiteList = ['/']
 
 const router = createRouter({
 	history: createWebHistory(),
-	routes
+	routes,
+	scrollBehavior() {
+		return {
+			el: '.message',
+			top: -400
+		}
+	}
 })
 
 // 加载条组件
