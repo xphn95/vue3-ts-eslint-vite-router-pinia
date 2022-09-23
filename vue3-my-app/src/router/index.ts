@@ -31,11 +31,23 @@ const whiteList = ['/']
 const router = createRouter({
 	history: createWebHistory(),
 	routes,
-	scrollBehavior() {
-		return {
-			el: '.message',
-			top: -400
+	async scrollBehavior() {
+		/* if (savedPosition) {
+			return savedPosition
 		}
+
+		return {
+			el: '#message',
+			top: 0
+		} */
+		return new Promise(r => {
+			setTimeout(() => {
+				r({
+					el: '#message',
+					top: 0
+				})
+			}, 500)
+		})
 	}
 })
 

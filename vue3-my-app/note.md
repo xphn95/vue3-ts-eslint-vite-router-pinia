@@ -347,3 +347,10 @@ router 的 components 属性
 
 ## 滚动行为
 
+router 有个 scrollBehavior 函数属性, 接收三个参数(to, from, savedPosition)
+
+savedPosition: 记录上次的位置
+
+延迟滚动: 可以返回一个 promise 包装的对象
+
+## 动态路由
