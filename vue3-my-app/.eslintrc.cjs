@@ -60,7 +60,11 @@ module.exports = defineConfig({
 					ignores: [
 						'Footer',
 						'Login',
-						'Index'
+						'Index',
+						'Demo1',
+						'Demo2',
+						'Demo3',
+						'404'
 					]
 				}],
 				// 对象内的空格
@@ -75,7 +79,8 @@ module.exports = defineConfig({
 		createDefaultProgram: true
 	},
 	plugins: [
-		'vue'
+		'vue',
+		'html'
 	],
 	rules: {
 		semi: [2, 'never'],

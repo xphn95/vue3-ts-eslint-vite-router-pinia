@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { FormItemRule, FormInstance } from 'element-plus'
+import initRouter from '~/service/index.js'
 
 type FormInline = {
   user: string,
@@ -32,6 +33,20 @@ const router = useRouter()
 
 const ruleFormRef = ref<FormInstance>()
 
+const addRouter = async (params: Record<string, string>) => {
+	const data = await initRouter<Array<Record<'path' | 'name' | 'component', string>>>({ params })
+	if (data.code === 200) {
+		data.route?.forEach(v => {
+			console.log(v)
+			router.addRoute({
+				path: v.path,
+				name: v.name,
+				component: async () => import(`../components/${v.component}`)
+			})
+		})
+	}
+}
+
 const onSubmit = async () => {
 	if (!ruleFormRef.value) {
 		return
@@ -41,6 +56,7 @@ const onSubmit = async () => {
 		if (valid) {
 			router.push({ path: '/index' })
 			localStorage.setItem('token', '1')
+			addRouter(formInline)
 		} else {
 			ElMessage.error('要输入完整')
 		}

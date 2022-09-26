@@ -23,6 +23,13 @@ const routes: RouteRecordRaw[] = [{
 	meta: {
 		title: '首页',
 		transition: 'animate__swing'
+	},
+	beforeEnter(to, from) {
+		if (from.name === undefined) {
+			return {
+				path: '/'
+			}
+		}
 	}
 }]
 
@@ -43,8 +50,7 @@ const router = createRouter({
 		return new Promise(r => {
 			setTimeout(() => {
 				r({
-					el: '#message',
-					top: 0
+					top: 10000
 				})
 			}, 500)
 		})

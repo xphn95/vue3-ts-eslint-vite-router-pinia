@@ -1,0 +1,1 @@
+module.exports = require("C:/Users/ning/Desktop/vue3-ts-lint-vite-router-pinia/backend/node_modules/.pnpm/jiti@1.16.0/node_modules/jiti/lib/index.js")(null, { interopDefault: true, esmResolve: true })("C:/Users/ning/Desktop/vue3-ts-lint-vite-router-pinia/backend/src/index.ts")
